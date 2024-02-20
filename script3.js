@@ -219,6 +219,29 @@ for (let i = 0; i < randomItemString.length; i++) {
 }
 empty.appendChild(divForWords);
 console.log(empty);
+function ToEnterValue(enterValue) {
+  let charInds = randomItemString
+    .split("")
+    .map((e, i) => (e.toLowerCase() === enterValue.toLowerCase() ? i : null))
+    .filter((x) => x !== null);
+  const blankContainer = document.querySelectorAll(".blank-container");
+  charInds.forEach((charInd) => {
+    emptyString.splice(charInd, 1, enterValue);
+    blankContainer.forEach((e, i) => {
+      if (i === charInd) {
+        e.textContent = enterValue;
+      }
+    });
+  });
+}
+
+function DecreaseChances(n) {
+  const chances = document.querySelector(".chances");
+  let chancesText = chances.textContent;
+  chancesText = chancesText.replace("🟢", "🔴");
+  // chancesTextArr.push();
+  chances.textContent = chancesText;
+}
 
 const container = document.querySelector(".container");
 container.addEventListener("click", (event) => {
@@ -227,22 +250,11 @@ container.addEventListener("click", (event) => {
     randomItemString.toLowerCase().includes(enterValue.toLowerCase())
     //  && !alreadyUSedWords.includes(enterValue.toLowerCase())
   ) {
-    let charInds = randomItemString
-      .split("")
-      .map((e, i) => (e.toLowerCase() === enterValue.toLowerCase() ? i : null))
-      .filter((x) => x !== null);
-    const blankContainer = document.querySelectorAll(".blank-container");
-    charInds.forEach((charInd) => {
-      emptyString.splice(charInd, 1, enterValue);
-      blankContainer.forEach((e, i) => {
-        if (i === charInd) {
-          e.textContent = enterValue;
-        }
-      });
-    });
+    ToEnterValue(enterValue);
     event.target.textContent = "❌";
   } else {
     n--;
+    DecreaseChances(n);
     event.target.textContent = "❌";
   }
 
