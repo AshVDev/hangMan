@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .alphabet-button {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            margin: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .alphabet-button:hover {
+            background-color: #ddd;
+        }
+
+        .container {
+            height: 100vh;
+            width: 100vw;
+            padding: 0 10px 0 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+
+        }
+
+        .blank-container {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #ccc;
+            font-size: 24px;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .blank-container:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+
+<body>
+    <div data-key="empty" style="display: flex; flex-direction: column; gap: 4px;text-align: center;">
+        <!-- <div class="blank-container"> </div> -->
+    </div>
+
+    <div class="container">
+
+        <div id="a" class="alphabet-button">A</div>
+        <div id="b" class="alphabet-button">B</div>
+        <div id="c" class="alphabet-button">C</div>
+        <div id="d" class="alphabet-button">D</div>
+        <div id="e" class="alphabet-button">E</div>
+        <div id="f" class="alphabet-button">F</div>
+        <div id="g" class="alphabet-button">G</div>
+        <div id="h" class="alphabet-button">H</div>
+        <div id="i" class="alphabet-button">I</div>
+        <div id="j" class="alphabet-button">J</div>
+        <div id="k" class="alphabet-button">K</div>
+        <div id="l" class="alphabet-button">L</div>
+        <div id="m" class="alphabet-button">M</div>
+        <div id="n" class="alphabet-button">N</div>
+        <div id="o" class="alphabet-button">O</div>
+        <div id="p" class="alphabet-button">P</div>
+        <div id="q" class="alphabet-button">Q</div>
+        <div id="r" class="alphabet-button">R</div>
+        <div id="s" class="alphabet-button">S</div>
+        <div id="t" class="alphabet-button">T</div>
+        <div id="u" class="alphabet-button">U</div>
+        <div id="v" class="alphabet-button">V</div>
+        <div id="w" class="alphabet-button">W</div>
+        <div id="x" class="alphabet-button">X</div>
+        <div id="y" class="alphabet-button">Y</div>
+        <div id="z" class="alphabet-button">Z</div>
+
+    </div>
+
+
+    <!-- <script src="./script.js"></script> -->
+    <script src="./script3.js"></script>
+</body>
+
+</html>
