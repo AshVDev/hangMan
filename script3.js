@@ -194,9 +194,12 @@ const categoriesWithItems = [
 ];
 
 let n = 8;
+let hintCount = 3;
 function randIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
+
+const hintCharPresent = [];
 
 let randomItemObj = categoriesWithItems[randIndex(categoriesWithItems)];
 let randomItemArray = Object.values(randomItemObj).flat();
@@ -235,10 +238,31 @@ function ToEnterValue(enterValue) {
   });
 }
 
+const hint = document.querySelector(".hint");
+hint.addEventListener("click", () => {
+  if (hintCount > 0) {
+    let ranChar = randomItemString.charAt(randIndex(randomItemString));
+    if (hintCharPresent.includes(ranChar)) {
+      for (let i = 0; i < randomItemString.length; i++) {
+        ranChar = randomItemString.charAt(randIndex(randomItemString));
+        if (!hintCharPresent.includes(ranChar)) {
+          console.log(ranChar, hintCharPresent);
+          break;
+        }
+      }
+    }
+    hintCharPresent.push(ranChar);
+    ToEnterValue(ranChar.toUpperCase());
+    hintCount--;
+    hint.textContent = `💡${hintCount}`;
+  }
+});
+
 function DecreaseChances(n) {
   const chances = document.querySelector(".chances");
   let chancesText = chances.textContent;
   chancesText = chancesText.replace("🟢", "🔴");
+  // chancesText.split("").splice(n, 1, "🔴").join("");
   // chancesTextArr.push();
   chances.textContent = chancesText;
 }
@@ -250,6 +274,7 @@ container.addEventListener("click", (event) => {
     randomItemString.toLowerCase().includes(enterValue.toLowerCase())
     //  && !alreadyUSedWords.includes(enterValue.toLowerCase())
   ) {
+    hintCharPresent.push(enterValue.toLowerCase());
     ToEnterValue(enterValue);
     event.target.textContent = "❌";
   } else {
